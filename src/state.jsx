@@ -1,3 +1,5 @@
+import { useResolvedPath } from "react-router-dom";
+
 const user = {
   name: "Иван",
   lastname: "Иванов",
@@ -9,4 +11,7 @@ const user = {
 
 export function getUser() {
   return user;
+}
+export function getUsers() {
+  return users;
 }
