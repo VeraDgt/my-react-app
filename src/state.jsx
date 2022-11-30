@@ -1,5 +1,3 @@
-import { useResolvedPath } from "react-router-dom";
-
 const user = {
   name: "Иван",
   lastname: "Иванов",
@@ -8,25 +6,28 @@ const user = {
   about: "Тут я рассказываю о себе...",
   avatar: "https://www.seekpng.com/png/full/356-3562377_personal-user.png",
 };
+
+
+// const users = {
+// 	0: { name: "Валерия", lastname: "Енютина", id: 4 },
+// 	1: { name: "Ипатий", lastname: "Яблочков", id: 9 },
+// 	2: { name: "Серж", lastname: "Петров", id: 7 },
+// 	3: { name: "Константин", lastname: "Тетерин", id: 2 },
+// 	4: { name: "Владислав", lastname: "Енютин", id: 22 },
+// 	5: { name: "Евгения", lastname: "Петрова", id: 14 },
+// };
 let users = {};
-//  users = {
-//   0: {name: "Валерия", lastname: "Енютина", id: 4}, 
-//   1: {name: "Ипатий", lastname: "Яблочков", id: 14},
-//   2: {name: "Серж", lastname: "Петров", id: 22},
-//   3: {name: "Константин", lastname: "Тетерин", id: 7},
-//   4: {name: "Владислав", lastname: "Енютин", id: 12},
-//   5: {name: "Евгения", lastname: "Петрова", id: 8},
-// }
 
 export function getUser(userId) {
-  for (let i = 0; i < Object.keys(users).length; i++) {
-    if (users[i].id == userId) return users[i];
-  }
-  return user;
+		for (let i = 0; i < users.length; i++) {
+			if (users[i].id == userId) return users[i];
+		}
+	return user;
 }
-export async function getUsers() {
-let response = await fetch("http://aroma.vina.p-host.in/getusers");
-let users = await response.json();
 
-  return users;
+export async function getUsers() {
+	let response = await fetch("http://aroma.vina.p-host.in/getUsers");
+	users = await response.json();
+
+	return users;
 }

@@ -5,10 +5,11 @@ const Profile = (props)=> {
   let userId = location.pathname.split("/")[2];
   let user = props.function(userId);
   
+  // console.log(userId);
   return (
     <div className="row">
       <div className="col-sm-3">
-        <img src={user.avatar} alt="" width={"80%"}/>
+        <img src={user.avatar} alt="" width={"100%"}/>
       </div>
       <div className="col-sm-9">
         <h1 style={{backgroundColor: "lightblue"}}>{user.name} {user.lastname}</h1>
